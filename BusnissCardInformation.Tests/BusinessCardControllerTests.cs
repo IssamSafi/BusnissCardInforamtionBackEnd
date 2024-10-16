@@ -33,8 +33,8 @@ namespace BusnissCardInformation.Tests
             
             var businessCards = new List<BusinessCard>
         {
-            new BusinessCard { Id = 1, Name = "John Doe" },
-            new BusinessCard { Id = 2, Name = "Jane Doe" }
+            new BusinessCard { Id = 1, Name = "Issam Safi" },
+            new BusinessCard { Id = 2, Name = "Issam Safi" }
         };
             _mockRepository.Setup(repo => repo.GetAll()).Returns(businessCards);
 
@@ -50,8 +50,8 @@ namespace BusnissCardInformation.Tests
         public void CreateBusinessCard_ReturnsCreatedResult_WhenSuccessful()
         {
             
-            var businessCard = new BusinessCard { Name = "John Doe" }; 
-            var createdCard = new BusinessCard { Id = 1, Name = "John Doe" }; 
+            var businessCard = new BusinessCard { Name = "Issam Safi" }; 
+            var createdCard = new BusinessCard { Id = 1, Name = "Issam Safi" }; 
             _mockServices.Setup(service => service.Create(businessCard)).Returns(createdCard);
 
             var result = _controller.CreateBusinessCard(businessCard);
@@ -66,8 +66,8 @@ namespace BusnissCardInformation.Tests
         public void CreateBusinessCardReturnsCreatedResult_WhenSuccessful()
         {
             
-            var businessCard = new BusinessCard { Name = "John Doe" }; 
-            var createdCard = new BusinessCard { Id = 1, Name = "John Doe" }; 
+            var businessCard = new BusinessCard { Name = "Issam Safi" }; 
+            var createdCard = new BusinessCard { Id = 1, Name = "Issam Safi" }; 
             _mockServices.Setup(service => service.Create(businessCard)).Returns(createdCard);
 
             
@@ -98,11 +98,11 @@ namespace BusnissCardInformation.Tests
             
             var filteredCards = new List<BusinessCard>
             {
-                new BusinessCard { Id = 1, Name = "John Doe" }
+                new BusinessCard { Id = 1, Name = "Issam Safi" }
             };
-            _mockRepository.Setup(repo => repo.Filter("John", null, null, null, null)).Returns(filteredCards);
+            _mockRepository.Setup(repo => repo.Filter("Issam ", null, null, null, null)).Returns(filteredCards);
 
-            var result = _controller.FilterBusinessCards(name: "John");
+            var result = _controller.FilterBusinessCards(name: "Issam ");
 
             
             var okResult = Assert.IsType<OkObjectResult>(result);
@@ -143,7 +143,7 @@ namespace BusnissCardInformation.Tests
           
             var businessCards = new List<BusinessCard>
             {
-                new BusinessCard { Id = 1, Name = "John Doe" }
+                new BusinessCard { Id = 1, Name = "Issam Safi" }
             };
             _mockRepository.Setup(repo => repo.GetAll()).Returns(businessCards);
             _mockServices.Setup(service => service.ExportToXml(businessCards)).Returns("<BusinessCards></BusinessCards>");
@@ -163,10 +163,10 @@ namespace BusnissCardInformation.Tests
           
             var businessCards = new List<BusinessCard>
             {
-                new BusinessCard { Id = 1, Name = "John Doe" }
+                new BusinessCard { Id = 1, Name = "Issam Safi" }
             };
             _mockRepository.Setup(repo => repo.GetAll()).Returns(businessCards);
-            _mockServices.Setup(service => service.ExportToCsv(businessCards)).Returns("Id,Name\n1,John Doe");
+            _mockServices.Setup(service => service.ExportToCsv(businessCards)).Returns("Id,Name\n1,Issam Safi");
 
             
             var result = _controller.ExportToCsv();
