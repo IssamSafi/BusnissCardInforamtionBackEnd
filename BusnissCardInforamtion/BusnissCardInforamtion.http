@@ -1,0 +1,6 @@
+@BusnissCardInforamtion_HostAddress = http://localhost:5062
+
+GET {{BusnissCardInforamtion_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
